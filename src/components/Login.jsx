@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Lock, Mail, BookOpen, Loader2 } from 'lucide-react';
+import { supabase } from '../supabaseClient';
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +16,29 @@ const Login = () => {
   
   const { login } = useAuth();
   const navigate = useNavigate();
+
+  async function handleLogin(email, password) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    })
+
+    try {
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+    
+      if (error || userError) {
+        console.error('Login error:', error?.message || userError?.message);
+      } else {
+        console.log('Login berhasil!', data);
+        console.log('User info:', user);
+      }
+    } catch (e) {
+      console.error('Unexpected error:', e.message);
+    }
+    
+  };
+
+  
 
   const handleChange = (e) => {
     setFormData({

@@ -615,8 +615,7 @@ const AdminPanel = () => {
               
               <div className="flex items-center space-x-2">
                 <img
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
-                  alt="Profile"
+                  src="/images/profile.png"
                   className="w-8 h-8 rounded-full"
                 />
                 <span className="text-sm font-medium text-gray-700">Admin SMAIT</span>

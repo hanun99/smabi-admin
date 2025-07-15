@@ -1070,7 +1070,7 @@ const AdminPanel = () => {
                     className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100"
                   >
                     <img 
-                      src={user.avatar} 
+                      src="/images/profile.jpg"
                       alt="Profile" 
                       className="w-8 h-8 rounded-full"
                     />
